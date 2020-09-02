@@ -5,97 +5,12 @@
     <link>https://paschermayr.github.io/post/</link>
       <atom:link href="https://paschermayr.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
     <image>
       <url>https://paschermayr.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
       <link>https://paschermayr.github.io/post/</link>
     </image>
-    
-    <item>
-      <title>Stylized Financial Facts and State Space Models</title>
-      <link>https://paschermayr.github.io/post/financialmarkets-1-stylized-financial-facts/</link>
-      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://paschermayr.github.io/post/financialmarkets-1-stylized-financial-facts/</guid>
-      <description>&lt;p&gt;Introducing XXX&lt;/p&gt;
-&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Stylized facts are a collection of empirical observations and inferences
-drawn of such, which apply to many time series of risk-factor changes
-(e.g. log-returns on equities, indices, exchange rates, commodity prices).&lt;/p&gt;
-&lt;p&gt;Stylized facts often apply to daily log-returns (also to intra-daily, weekly,
-monthly). Tick-by-tick (high-frequency) data have their own stylized
-facts (not discussed here) and annual return (low-frequency) data are
-more difficult to investigate (data sparcity; non-stationarity).&lt;/p&gt;
-&lt;p&gt;If not explicitly stated otherwise we will consider
-$ Y_t = log( S_t / S_{t-1}) \approx S_t / S_{t-1} - 1 = (S_t - S_{t-1}) / S_{t-1} $, where
-$S_t$ is, for example, the price of an equity index.&lt;/p&gt;
-&lt;p&gt;We usually describe univariate time series here, I may make a separate post to expand this to
-multivariate time series data. I will also try to briefly explain of how these &amp;ldquo;facts&amp;rdquo; may be modeled via SSMs at the
-end of each subsection&lt;/p&gt;
-&lt;p&gt;Also, to finish off the pre-blog-post, this is post about empirical finance, which is probably closer to an art than
-a hard science. I am absolutely certain that people will find counter examples to
-below statements, but more often than not they will hold true, given the above setting.
-If you want to expand on this further, have a look at the excellent text book (McNeil et al., 2005).&lt;/p&gt;
-&lt;h1 id=&#34;a1-return-series-are-not-iid-although-they-show-little-serial-correlation&#34;&gt;(a.1) Return series are not iid although they show little serial correlation&lt;/h1&gt;
-&lt;p&gt;Make return plot of SnP&lt;/p&gt;
-&lt;p&gt;Then show ACF plot (boring) of returns, absolute returns and squared returns&lt;/p&gt;
-&lt;p&gt;show that this is assumption of HMM!&lt;/p&gt;
-&lt;h1 id=&#34;a2-extreme-returns-appear-in-clusters&#34;&gt;(a.2) Extreme returns appear in clusters&lt;/h1&gt;
-&lt;p&gt;will use only graphical tests here, this is pretty much common knowledge by now, but everyone
-is welcome to use any other statistical test.&lt;/p&gt;
-&lt;h1 id=&#34;a3-return-series-are-leptokurtic-or-heavy-tailed-power-like-tail&#34;&gt;(a.3) Return series are leptokurtic or heavy-tailed (power-like tail).&lt;/h1&gt;
-&lt;p&gt;Q-Q plot of data vs standard normal&lt;/p&gt;
-&lt;p&gt;Daily returns typically have kurtosis k &amp;gt; 3 (leptokurtic; narrower center,
-heavier tails than N(μ, sigma2) for which k = 3). They have typically power-like
-tails rather than exponential&lt;/p&gt;
-&lt;p&gt;have to see how that works out&lt;/p&gt;
-&lt;h1 id=&#34;a4-volatility-clusters-and-a5-varies-over-time&#34;&gt;(a.4) Volatility clusters and (a.5) varies over time&lt;/h1&gt;
-&lt;p&gt;As shown above, series of absolute or squared returns show profound serial correlation. This is more commonly
-known as volatility clustering - the tendency for extreme returns to be followed by other extreme returns, although
-not necessarily with the same sign.&lt;/p&gt;
-&lt;p&gt;plot hmm via last function then square return to show that.
-Also state that if you directly want to model you need to adjust your observations appropriately!&lt;/p&gt;
-&lt;p&gt;The last remaining stylized fact to check is vola clustering. The slow decay of the ACF for series of absolute/squared daily
-return is difficult to model. RY stated that this stylized fact cannot be reproduced by the HMM because the decay
-of the autocorrelations is (much) faster than that observed in reality. He considered this stylized fact to be “the most
-difficult [&amp;hellip;] to reproduce with a HMM&lt;/p&gt;
-&lt;p&gt;Alternatively you might introduce some dependence on the past observations to better capture this.&lt;/p&gt;
-&lt;p&gt;follows basic assumption of HMM. However, if you want to model volatility directly,
-you need to adjust the model for the autoregressive behavior. I made a post about such
-models here.&lt;/p&gt;
-&lt;h1 id=&#34;b1-multivariate-return-series-show-little-evidence-of-cross-correlation-except-for&#34;&gt;(b.1) Multivariate return series show little evidence of cross-correlation, except for&lt;/h1&gt;
-&lt;p&gt;contemporaneous returns.&lt;/p&gt;
-&lt;p&gt;Just as the stock returns for, say, General Motors on days t and t + h (for h &amp;gt; 0) show very little serial correlation, so we generally detect very little correlation between the General Motors return on day t and, say, the Coca-Cola return on day t + h. Of course, stock returns on the same day may show non-negligible correlation, due to factors that affect the whole market on that day. When we look at absolute returns we should bear in mind that periods of high or low volatility are generally common to more than one stock. Thus returns of large magnitude in one stock may tend to be followed on subsequent days by further returns of large magnitude for both that stock and other stocks, which would explain (M2).&lt;/p&gt;
-&lt;h1 id=&#34;b2-multivariate-series-of-absolute-returns-show-profound-evidence-of-crosscorrelation&#34;&gt;(b.2) Multivariate series of absolute returns show profound evidence of crosscorrelation.&lt;/h1&gt;
-&lt;h1 id=&#34;b3-correlations-between-series-ie-between-contemporaneous-returns-vary-over&#34;&gt;(b.3) Correlations between series (i.e. between contemporaneous returns) vary over&lt;/h1&gt;
-&lt;p&gt;time.&lt;/p&gt;
-&lt;p&gt;Stylized fact (M3) is a multivariate counterpart to univariate observation (4): that volatility appears to vary with time. While the latter appears “obvious” to the naked eye from illustrations such as Figure 4.1, the multivariate observation is less straightforward to demonstrate. In fact, although it is widely believed that correlations change, there are various ways of interpreting this stylized fact in terms of underlying models.We may believe that correlations are constant within regimes but that there is evidence of relatively frequent regime changes. Or we may believe that correlation changes continually and dynamically like volatility. Just as volatility is often formally modelled as the conditional standard deviation of returns given historical information, we can also devise models that feature a conditional correlation that is allowed to change dynamically.&lt;/p&gt;
-&lt;p&gt;The only way to collect evidence for (M3) and to decide in what way correlation changes is to fit different models for changing correlation and then to make formal
-statistical comparisons of the models. More ad hoc attempts to demonstrate (M3) should generally be avoided. For example, it is not sufficient to calculate correlations
-between two daily series for monthly samples and to observe that these values may vary greatly from month to month;&lt;/p&gt;
-&lt;p&gt;Correlations of returns at t vary over time (difficult to detect whether
-changes are continual or constant within regimes; fit different models
-for changing correlation, then make a formal comparison).&lt;/p&gt;
-&lt;h1 id=&#34;b4-extreme-returns-in-one-series-often-coincide-with-extreme-returns-in-several&#34;&gt;(b.4) Extreme returns in one series often coincide with extreme returns in several&lt;/h1&gt;
-&lt;p&gt;other series.&lt;/p&gt;
-&lt;p&gt;Stylized fact (M4) is encountered in other forms; one often hears the view that
-“correlations go to one in times of market stress”. The idea this observation attempts
-to express is that in volatile periods the level of dependence between, for example,
-various stock returns appears to be higher.&lt;/p&gt;
-&lt;h1 id=&#34;c1-series-of-long-low-vola-regime-followed-by-short-high-vola-regime--eco-cycle-7-10-years&#34;&gt;(c.1) series of long low vola regime followed by short high vola regime / eco cycle 7-10 years&lt;/h1&gt;
-&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;average-eonomic-cycle&#34;&gt;Average eonomic cycle?&lt;/h1&gt;
-&lt;p&gt;Then make HMM, and show that its squared returns also have serial correlation!&lt;/p&gt;
-&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;Hence, HMMs and in particular HSMMs can mimic many of the stylized facts really well&lt;/p&gt;
-&lt;p&gt;Interesting model, we will have a closer look of how to estimate such models, both in a frequentist and Bayesian setting,
-and more advanced methods to forecast with such models. We may also have a look at HMM extensions, and the improvements and shortcomings of such models.&lt;/p&gt;
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-&lt;p&gt;McNeil, A., Frey, R., and Embrechts, P. (2005). Quantitative Risk
-Management: Concepts, Techniques and Tools. Princeton
-University Press, USA.&lt;/p&gt;
-</description>
-    </item>
     
   </channel>
 </rss>

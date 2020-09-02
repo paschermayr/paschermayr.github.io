@@ -13,71 +13,6 @@
   </url>
   
   <url>
-    <loc>https://paschermayr.github.io/authors/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/categories/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/tag/financial-markets/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/category/financial-markets/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/tag/hidden-markov-model/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/tag/julia/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/tag/latent-variable/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/author/patrick-aschermayr/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/post/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/tag/state-space-models/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/post/financialmarkets-1-stylized-financial-facts/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/tags/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/</loc>
-    <lastmod>2020-06-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://paschermayr.github.io/talk/</loc>
     <lastmod>2020-05-01T13:00:00+00:00</lastmod>
   </url>
@@ -85,6 +20,11 @@
   <url>
     <loc>https://paschermayr.github.io/talk/lse-2020-phd-research-update/</loc>
     <lastmod>2020-05-01T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/</loc>
+    <lastmod>2020-06-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -103,11 +43,31 @@
   </url>
   
   <url>
+    <loc>https://paschermayr.github.io/authors/</loc>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/author/patrick-aschermayr/</loc>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/post/</loc>
+  </url>
+  
+  <url>
     <loc>https://paschermayr.github.io/publication_types/</loc>
   </url>
   
   <url>
     <loc>https://paschermayr.github.io/publication/</loc>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/tags/</loc>
   </url>
   
 </urlset>
