@@ -5,12 +5,158 @@
     <link>https://paschermayr.github.io/post/</link>
       <atom:link href="https://paschermayr.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 06 Sep 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://paschermayr.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
       <link>https://paschermayr.github.io/post/</link>
     </image>
+    
+    <item>
+      <title>A Primer on State Space Models</title>
+      <link>https://paschermayr.github.io/post/statespacemodels-1-a-primer-on-state-space-models/</link>
+      <pubDate>Sun, 06 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://paschermayr.github.io/post/statespacemodels-1-a-primer-on-state-space-models/</guid>
+      <description>&lt;p&gt;Introducing State Space Models&lt;/p&gt;
+&lt;h1 id=&#34;welcome&#34;&gt;Welcome!&lt;/h1&gt;
+&lt;p&gt;In my first series of posts, I will give a primer on state space models (SSM) that will lay a foundation in
+understanding upcoming posts about their variants, usefulness, methods to apply inference and forecasting possibilities.
+When talking about a state space model (SSM), people usually refer to a bivariate stochastic process $\{ E_t, S_t \}_{t = 1,2,\ldots ,T }$, where $S_t$ is an unobserved
+Markov chain and $E_t$ is an observed sequence of random variables. This may sounds difficult now, so let us look at a graphical example of one of the
+most well known SSMs out there - the so called Hidden Markov Model (HMM):
+&lt;img src=&#34;https://paschermayr.github.io/files/post/BayesianHMM.png&#34; alt=&#34;A plot&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;so-what-are-ssms-really&#34;&gt;So, what are SSMs really?&lt;/h1&gt;
+&lt;p&gt;Cool! To sum up the idea above in words, there is some unobserved process $S_t$ guiding the underlying data $E_t$. The Greek letters in the square
+box are the corresponding model parameter, which we assume to be fixed for now, and their priors. For example, maybe you own some shares of a company? Then the periodic changes in
+your portfolio, $e_t$, will be influenced by the current state of the economy, $s_t$. Hence, you may model this relationship as an HMM.
+There are many different variants of the model stated above, which I will discuss in future posts. One may include some autoregressive structure for the observation sequence,
+or one may decide to model the state sequence as a higher order Markov chain or even as a semi-Markov chain. Depending on the underlying data you want to model, one may also
+want to combine several of these ideas.&lt;/p&gt;
+&lt;h1 id=&#34;and-why-are-they-useful&#34;&gt;And why are they useful?&lt;/h1&gt;
+&lt;p&gt;It turns out that having an underlying, unobserved process guiding some observed variables is a phenomenon that comes up naturally in many different areas.
+While I used an example from finance, there are many areas in genetics, anomaly detection and speech and pattern recognition, among others,
+where this structure comes up naturally and SSM can be applied successfully. Moreover, these models&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;can handle structural breaks, shifts, or time-varying parameters of a model. Model parameter will adjust depending on the current state.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;allow you to model complex and nonlinear relationships.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;handle missing and irregular spaced data easily.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;can be used to do forecasting naturally due to their sequential setting.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;have interpretable structure to perform inference.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So even if someone is only interested in the observed sequence, the addition of a latent variable offers much additional flexibility that
+might not be feasable otherwise. This comes at the price that SSMs are, in general, computationally hard to estimate. I will go further into this topic in a separate post.&lt;/p&gt;
+&lt;h1 id=&#34;sampling-our-very-first-state-space-model&#34;&gt;Sampling our very first State Space Model&lt;/h1&gt;
+&lt;p&gt;For our first SMM, we will use observations that are normally distributed given the states. In this case, $S_t$ is a first order Markov chain, which can be depicted as a
+so called transition matrix $\tau$ . Each row in this matrix has a Categorical distribution, and the parameters thus have to sum up to 1 and are bounded between 0 and 1.
+$$
+\begin{equation}
+\begin{split}
+&amp;amp; e_t \sim  Normal(\mu_{s_t}, \sigma_{s_t} ) \\&lt;br&gt;
+&amp;amp; s_t \sim  Categorical( \tau_{s_{t-1}}) \&lt;br&gt;
+\end{split}
+\end{equation}
+$$
+Let&amp;rsquo;s write down a function that can generate sample paths of the HMM from above. I will mainly use Julia in my blog posts, as this programming language is incredibly fast
+and readable, and has some amazing features to make the life of anyone doing scientific computational research much easier. Here are some notes to help
+understand the code to sample a single trajectory of said HMM:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The function input are the model distributions stated above.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The function output is a single trajectory of the observed and latent variables.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Before we start the for loop over time, we need to define the initial state. If the latent states of the data are conceived as a subsequence of a
+long-running process, the probability of the initial state should be set to the stationary state probabilities
+of this unobserved Markov chain. This plays an important part in the estimation paradigm, but for now we simply choose any
+of the available states with equal probability. Don&amp;rsquo;t worry if this sounds difficult for you - we will come back to it in a future post.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The for loop samples the new state given the old state, and then the observation given the new state, over time. The corresponding distributions
+are stated above.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;That&amp;rsquo;s it! Let us have a look:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;
+using Plots, Distributions
+
+function sampleHMM(evidence::Vector{&amp;lt;:Distribution}, transition::Vector{&amp;lt;:Distribution}, T::Int64)
+        #Initialize states and observations
+        state = zeros(Int64, T)
+        observation = zeros(Float64, T)
+
+        #Sample initial s from initial distribution
+        state[1] = rand( 1:length(transition) ) #not further discussed here
+        observation[1] = rand( evidence[ state[1] ] )
+
+        #Loop over Time Index
+        for time in 2:T
+                state[time] = rand( transition[ state[time-1] ] )
+                observation[time] = rand( evidence[ state[time] ] )
+        end
+        return state, observation
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;sampleHMM (generic function with 1 method)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To round out this post, you can check out this function with different distributions and transition matrices:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;
+T = 100
+evidence =  [Normal(0., .5), Normal(0.,2.)]
+transition = [ Categorical([0.7, 0.3]), Categorical([0.5, 0.5]) ]
+
+state, observation = sampleHMM(evidence, transition, T)
+
+plot( layout=(2,1), label=false, margin=-2Plots.px)
+plot!(observation, ylabel=&amp;quot;data&amp;quot;, label=false, subplot=1, color=&amp;quot;gold4&amp;quot;)
+plot!(state, yticks = (1:2), ylabel=&amp;quot;state&amp;quot;, xlabel=&amp;quot;time&amp;quot;, label=false, subplot=2, color=&amp;quot;black&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://paschermayr.github.io/files/post/1%20A%20primer%20on%20State%20Space%20Models_2_1.png&#34; &gt;
+
+
+  &lt;img src=&#34;https://paschermayr.github.io/files/post/1%20A%20primer%20on%20State%20Space%20Models_2_1.png&#34; alt=&#34;&#34;  &gt;
+&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+&lt;h1 id=&#34;going-forward&#34;&gt;Going forward&lt;/h1&gt;
+&lt;p&gt;We are off to a good start! Next time we will have a closer look at different variants of state space models and their subtle differences.
+This should give you a better understanding of possible use cases for SSMs!&lt;/p&gt;
+</description>
+    </item>
     
   </channel>
 </rss>
