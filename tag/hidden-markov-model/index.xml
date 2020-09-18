@@ -152,6 +152,8 @@ plot!(state, yticks = (1:2), ylabel=&amp;quot;state&amp;quot;, xlabel=&amp;quot;
 
 &lt;/figure&gt;
 
+&lt;p&gt;You can download the full script from my 
+&lt;a href=&#34;https://github.com/paschermayr/Shared-Code&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub account&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;going-forward&#34;&gt;Going forward&lt;/h1&gt;
 &lt;p&gt;We are off to a good start! Next time we will have a closer look at different variants of state space models and their subtle differences.
 This should give you a better understanding of possible use cases for SSMs!&lt;/p&gt;
