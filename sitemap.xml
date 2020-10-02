@@ -14,12 +14,52 @@
   
   <url>
     <loc>https://paschermayr.github.io/authors/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-1/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://paschermayr.github.io/categories/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/tag/particle-mcmc/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/author/patrick-aschermayr/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/post/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/tag/state-space-models/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/category/state-space-models/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/tags/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://paschermayr.github.io/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -33,37 +73,7 @@
   </url>
   
   <url>
-    <loc>https://paschermayr.github.io/author/patrick-aschermayr/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/post/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/tag/state-space-models/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/category/state-space-models/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://paschermayr.github.io/post/statespacemodels-2-hsmm/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/tags/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://paschermayr.github.io/</loc>
     <lastmod>2020-09-18T00:00:00+00:00</lastmod>
   </url>
   
