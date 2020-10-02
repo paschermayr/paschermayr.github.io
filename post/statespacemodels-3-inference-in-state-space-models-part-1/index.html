@@ -667,18 +667,18 @@ $E_t$ is the observed data and $S_t$ the corresponding latent state.</p>
 <h1 id="so-what-can-we-do">So what can we do?</h1>
 <p>If both $E_t$ and $S_t$ follow a Normal distribution, one may analytically estimate the corresponding model parameter via the so called Kalman equations,
 but given these very specific assumptions, we will not concentrate on this special case going forward.
-If $S_{1:t}$ is discrete, then the most common point estimation technique is the EM-Algorithm.
+If $S_{1:T}$ is discrete, then the most common point estimation technique is the EM-Algorithm.
 In this case, one can use common filtering techniques, explained in (Rabiner, 1989), to iteratively calculate state probabilities and update model parameter.
 Once the EM-Algorithm has reached some convergence criterion, one may estimate the most likely state trajectory given the estimated parameter. I will not go into
 much detail here because this procedure has been explained on many occasions and will instead refer to the literature above.
 However, both approaches do not work in many cases. The former technique only works with very specific model assumptions.
-The latter technique is not available in case $S_{1:t}$ is continuous. Moreover, even if the state sequence is
+The latter technique is not available in case $S_{1:T}$ is continuous. Moreover, even if the state sequence is
 discrete, summing out the state space might be computationally very challenging if the latent state structure is complex. In addition, one may not be able to
 write down the analytical forms of the updating equations for more complex state space models.</p>
 <p>Another popular approach is to use Gibbs sampling, where one uses the previously mentioned filtering techniques to obtain a sample from the
 whole state trajectory $S_{1:T}$, and then sample model parameter conditional on this path.
 This technique suffers from the usually high autocorrelation within the model parameter vector and the state sequence.
-Moreover, ideally one would like to perform estimation jointly for the model parameter $\theta$ and the latent state space $S_{1:t}$, as both have a high interdependence as well. This is not feasible for either method that I mentioned so far.
+Moreover, ideally one would like to perform estimation jointly for the model parameter $\theta$ and the latent state space $S_{1:T}$, as both have a high interdependence as well. This is not feasible for either method that I mentioned so far.
 For a more in-depth discussion, an excellent comparison of point estimation and Bayesian techniques is given by (Ryden, 2008).</p>
 <h1 id="a-general-framework-to-perform-inference-on-state-space-models">A general framework to perform inference on state space models</h1>
 <p>Given the statements above, I will now focus on a general approach to perform joint estimation on the model parameter and state trajectory of state space models,
@@ -715,7 +715,7 @@ A_{PMCMC} &amp;= \frac{ P( s^{\star}_{1:T} \mid \theta^{\star}) }{  P(s_{1:T} \m
 $$</p>
 <p>Okay, but what does that even mean? In the first step, we propose a new parameter vector $\theta^{\star}$ from a MCMC proposal distribution. I will not go over the basics
 of MCMC, as this has been explained in many other articles, but we will implement an example in part 3 of this tutorial. Given this $\theta^{\star}$, we sample a new trajectory
-$s^\star_{1:T}$ and jointly accept this pair with the acceptance ratio from point 3. This framework allows to jointly sample $\theta$ and $S_{1:t}$, which was our goal in the first place.
+$s^\star_{1:T}$ and jointly accept this pair with the acceptance ratio from point 3. This framework allows to jointly sample $\theta$ and $S_{1:T}$, which was our goal in the first place.
 However, the in general intractable likelihood term is still contained in the acceptance probability in step 3,
 which is simplified by using the basic marginal likelihood identity (BMI) from (Chib, 1995).
 Consequently, the difficulty to obtain a sample from the posterior remains the same: we need to evaluate the (marginal) likelihood of the model.</p>
@@ -723,10 +723,10 @@ Consequently, the difficulty to obtain a sample from the posterior remains the s
 <p>An alternative is to replace this (marginal) likelihood with an unbiased estimate $\hat{ \mathcal{L} }$$_\theta(e_{1:T})$. In this setting, (Andrieu and Roberts, 2010) have shown the puzzling result that one
 can do so and still target the exact posterior distribution of interest, thereby opening a completely new research area now called &lsquo;exact approximate MCMC&rsquo;.
 The algorithm that is used in this setting targets the full posterior and is known as Particle MCMC (PMCMC).
-Here, a particle filter (PF) is used to obtain a sample for $S_{1:t}$. A by-product of this procedure is that we also obtain an unbiased estimate for the likelihood.
+Here, a particle filter (PF) is used to obtain a sample for $S_{1:T}$. A by-product of this procedure is that we also obtain an unbiased estimate for the likelihood.
 If you are more interested in PFs, have a look at the paper from (Doucet, A. and Johansen, 2011).
-For anyone wondering: as $p(s_{1:t} \mid e_{1:t}, \theta )$ is replaced with an approximation $\hat{p}(s_{1:T} \mid e_{1:T}, \theta )$,
-the approximation does not admit $p(s_{1:t}, \theta \mid e_{1:t})$ as invariant density, but
+For anyone wondering: as $p(s_{1:T} \mid e_{1:T}, \theta )$ is replaced with an approximation $\hat{p}(s_{1:T} \mid e_{1:T}, \theta )$,
+the approximation does not admit $p(s_{1:T}, \theta \mid e_{1:T})$ as invariant density, but
 this is corrected in the PMCMC algorithm via step 3.</p>
 <h1 id="going-forward">Going forward</h1>
 <p>The PMCMC machinery provides a very powerful framework and cures many of the difficulties in the estimation paradigms mentioned at the
