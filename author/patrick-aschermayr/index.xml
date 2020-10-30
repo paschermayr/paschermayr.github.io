@@ -5,12 +5,229 @@
     <link>https://paschermayr.github.io/author/patrick-aschermayr/</link>
       <atom:link href="https://paschermayr.github.io/author/patrick-aschermayr/index.xml" rel="self" type="application/rss+xml" />
     <description>Patrick Aschermayr</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 30 Oct 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://paschermayr.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Patrick Aschermayr</title>
       <link>https://paschermayr.github.io/author/patrick-aschermayr/</link>
     </image>
+    
+    <item>
+      <title>Bayesian Inference in State Space Models - Part 3</title>
+      <link>https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-3/</link>
+      <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-3/</guid>
+      <description>&lt;p&gt;The MCMC in PMCMC - Making a Proposal Distribution for State Space Model Parameter&lt;/p&gt;
+&lt;h1 id=&#34;almost-done&#34;&gt;Almost done!&lt;/h1&gt;
+&lt;p&gt;In my previous blog posts
+
+&lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;
+and 
+&lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;,
+we explored a general framework on how to conduct parameter estimation
+for state space models (SSM), and took a first step in implementing this machinery. In order to
+apply Particle MCMC (PMCMC), we have to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;Find a good proposal distribution $f(\theta^{\star} \mid \theta)$ for $ \theta^{\star}$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Find a good proposal distribution $P(s^\star_{1:T} \mid \theta^{\star}, e_{1:T})$ for $ S^{\star}_{1:T}$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Find a sufficiently &amp;lsquo;good&amp;rsquo; likelihood approximation $\hat{\mathcal{L}}$$_{\theta}(e_{1:T})$ that we can plug into the acceptance rate.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We have already tackled the latter two problems in the previous posts, so what about the first one?&lt;/p&gt;
+&lt;h1 id=&#34;the-mcmc-in-pmcmc&#34;&gt;The MCMC in PMCMC&lt;/h1&gt;
+&lt;p&gt;If we want to jointly sample the parameter vector $\theta$, the first thing we need to do is to check the corresponding boundary conditions
+of our parameter. For instance, if we want to estimate parameter of univariate normal observations, the mean parameter is
+typically defined on the whole Reals, while the variance is constrained to be positive. There are several ways to proceed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;i. We could, in principle, use some multivariate proposal distribution $f( . \mid \theta)$, and reject all proposals where one of the parameter
+falls outside of the corresponding boundaries. This is, as you already guessed, very wasteful.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ii. Alternatively, you could use a truncated multivariate proposal distribution. Note that this is NOT the same as (i.), as one needs
+to adjust the normalisation constants in the MH acceptance ratio, see
+
+&lt;a href=&#34;https://darrenjw.wordpress.com/tag/truncate/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this blog post&lt;/a&gt; for a more detailed explanation.
+This approach is intuitively more efficient than the first option, but highly model specific and sometimes difficult to track for errors.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;iii. Another possibility is to first transform the corresponding parameter into an unconstrained space, perform the MCMC step in this
+unconstrained space, and then transform the proposed parameter back into the original space for the likelihood evaluation.
+In this case, we have to be careful when calculating the prior. As we are now working with the transformed
+parameter, we need to adjust the prior distribution with the Jacobian of the transform (keyword: push-forward measure). If you have trouble understanding that,
+I recommend 
+&lt;a href=&#34;https://stats.stackexchange.com/questions/174962/when-re-parametrizing-a-likelihood-function-is-it-enough-just-to-plug-in-the-tr&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this explanation&lt;/a&gt;
+before you proceed reading.
+This approach has a much higher initial workload, but to my mind is the most general and effective way to perform
+MCMC, and almost all libraries that you use work in this way under the hood. Consequently, we will focus on the third case.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, how can we code this up? The most straightforward way to implement this approach is by using information from the corresponding
+prior: boundaries, length and dimension of each parameter can be inferred from here. I will use a new Julia package
+
+&lt;a href=&#34;https://github.com/TuringLang/Bijectors.jl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bijectors.jl&lt;/a&gt; that makes the workflow significantly easier, but there are similar packages
+in other languages as well.&lt;/p&gt;
+&lt;h1 id=&#34;coding-it-all-up&#34;&gt;Coding it all up&lt;/h1&gt;
+&lt;p&gt;In my 
+&lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;last post&lt;/a&gt;, we implemented a particle
+filter for basic hidden Markov models, so let us continue to use this example.
+Hence, we are interested in the mean and variance parameter for each state, and the corresponding transition matrix of the
+latent Markov chain. For now, let us assume the transition matrix is known, so we can implement
+the MCMC machinery for scalar based parameter, and do not need to extend our functions for vector valued parameter. To my mind,
+this would put too much attention to the code rather than the actual topic.
+We start by creating a container that can hold one parameter and its corresponding priors.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;using Distributions, Bijectors, Parameters
+import Base: count
+
+#A container with necessary information about θ
+mutable struct ParamInfo{T, D&amp;lt;:Union{Nothing, &amp;lt;:Distributions.Distribution} }
+    value   :: T #Can be Real, Integer, or a Arrays composed of it
+    prior   :: D #Corresponding prior of value, needs to fulfill boundary constraints!
+end
+ParamInfo(value::T) where {T} = ParamInfo(value, nothing)
+
+#Check the number of parameter in ParamInfo struct
+function count(paraminfo::ParamInfo)
+    return length(paraminfo.value)
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;count (generic function with 17 methods)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that I also defined a function that informs us about the parameter size inside this container. Next, we will make a
+summary container for all the different parameter that we will need during the tutorial - i.e., mean and variance parameter of a univariate Normal distribution
+for each state in the basic HMM case.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;#A summary container for all relevant parameter
+mutable struct HMMParameter
+    μ   :: Vector{ParamInfo} #Observation Distribution Mean
+    σ   :: Vector{ParamInfo} #Observation Distribution Variance
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Further, we want to define some helper functions that enable us to transform and inverse transform the parameter
+in said container. Remember that our goal is to sample from some unconstrained space, and then inverse transform said parameter back to our constrained space. This will help us to accept more parameter proposals in the MCMC step. Note that I will use a subscript t for
+certain variables in order to indicate that the operation takes place in the transformed space.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;#Wrapper to transform θ into an unconstrained space
+function transform(parameter::ParamInfo)
+    return Bijectors.link(parameter.prior, parameter.value)
+end
+#Wrapper to transform θₜ back into the original space, and store it in parameter struct
+function inverse_transform!(parameter::ParamInfo, θₜ::T) where {T}
+    value = Bijectors.invlink(parameter.prior, θₜ)
+    @pack! parameter = value
+    return value
+end
+
+#The same two functions dispatched on the summary container
+function transform(parameter::HMMParameter)
+    θₜ = Float64[]
+    for field_name in fieldnames( typeof( parameter ) )
+        sub_field = getfield(parameter, field_name )
+        append!(θₜ, transform.(sub_field) )
+    end
+    return θₜ
+end
+function inverse_transform!(parameter::HMMParameter, θₜ::Vector{T}) where {T}
+    counter = 1
+    for field_name in fieldnames( typeof( parameter ) )
+        sub_field = getfield(parameter, field_name )
+        dim = sum( count.(sub_field) )
+        inverse_transform!.( sub_field, θₜ[ counter:(-1 + counter + dim )] )
+        counter += dim
+    end
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;inverse_transform! (generic function with 2 methods)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We must define this for both the individual ParamInfo as well as the summary container. This is, admittedly, not a straightforward process. However,
+the important part is that we now have a container that holds all the
+unknown observation parameter that we need in the HMM case, and we can freely transform and inverse transform parameter
+that are contained in there. If you understand this goal, then you are perfectly fine to continue.&lt;/p&gt;
+&lt;p&gt;As an example, let us now create an object that contains the mean and variance parameter of a univariate Normal two-state HMM. Next,
+we transform all parameter into an unconstrained space, sample the transformed parameter and inverse transform them back into the original space:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;#Create a Vector of univariate Normal Model parameter and assign a prior to each of them:
+μᵥ = [ParamInfo(-2.0, Normal() ), ParamInfo(2.0, Normal() )] #Initial value and Prior
+σᵥ = [ParamInfo(1.0, Gamma() ), ParamInfo(1.0, Gamma(2,2) )] #Initial value and Prior
+
+hmmparam = HMMParameter(μᵥ, σᵥ)
+
+#Transform parameter:
+transform(hmmparam)
+
+#Sample parameter from an unconstrained distribution, then inverse transform and plug into our container:
+θₜ_proposed = randn(4)
+inverse_transform!(hmmparam, θₜ_proposed)
+hmmparam #Check that parameter in hmmparam fulfill boundary conditions
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Well done, we achieved our initial goal! You can run the above code several times, and will see that the plugged in
+parameter in the constrained space will satisfy the corresponding boundary conditions, even though we sampled from a multivariate
+Normal distribution. At the very beginning, I mentioned that when transforming parameter in an unconstrained space,
+one has to adjust the corresponding prior. These adjustments will all be handeled by the Bijectors package, so
+we can conveniently write a function that calculates the prior for each of our parameter and returns the sum of it.
+This will be helpful when we run the PMCMC algorithm in the next blog post.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;#function to calculate prior including Jacobian adjustment
+function calculate_logπₜ(parameter::ParamInfo)
+    return logpdf_with_trans(parameter.prior, parameter.value, true)
+end
+
+#Wrapper to calculate prior including jacobian adjustment on all parameter
+function calculate_logπₜ(parameter::HMMParameter)
+    πₜ = 0.0
+    for field_name in fieldnames( typeof( parameter ) )
+        sub_field = getfield(parameter, field_name )
+        πₜ += sum( calculate_logπₜ.(sub_field) )
+    end
+    return πₜ
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;calculate_logπₜ (generic function with 2 methods)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Perfect! Now we are almost done for today,
+the last thing to do is to create a MCMC sampler. We will use a straightforward Metropolis algorithm with a multivariate Normal proposal distribution.
+As before, we will first define a container with all the necessary information and a function on it to sample via this object:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;# Container with necessary information for a Metropolis MCMC step
+mutable struct Metropolis{T&amp;lt;:Real}
+    θₜ           ::  Vector{T}
+    scaling     ::  Float64
+end
+
+# Function to propose a Metropolis step
+function propose(sampler::Metropolis)
+    @unpack θₜ, scaling = sampler
+    return rand( MvNormal(θₜ, scaling) )
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;propose (generic function with 1 method)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Scaling is a tuning parameter that determines how large the proposal steps for the parameter will be. The larger the tuning parameter,
+the larger the proposed movements will be, which might result in a lower acceptance rate. Check this out yourself. At the end, we check our framework by assigning an initial parameter value
+and sampling from there via this MCMC sampler:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-julia&#34;&gt;#Create an initial sampler, and propose new model parameter:
+θₜ_inital = randn(4)
+metropolissampler = Metropolis(θₜ_inital, 1/length(θₜ_inital) )
+propose(metropolissampler)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;4-element Array{Float64,1}:
+ -0.5791553185118626
+  0.5875000886407763
+ -0.09563827588507412
+  1.1869926689230335
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;way-to-go&#34;&gt;Way to go!&lt;/h1&gt;
+&lt;p&gt;This section was more straightforward than the previous one! We can now store, transform and inverse transform model parameter
+of a basic HMM. We can also create a basic MCMC algorithm to sample said parameter. In my final post, we will combine the previous instalments of this series
+and implement the PMCMC algorithm to estimate HMM model and state trajectory parameter jointly. See you soon!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Inference in State Space Models - Part 2</title>
