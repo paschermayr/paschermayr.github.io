@@ -27,10 +27,10 @@
   
     
   
-  <meta name="description" content="Introduction to Hidden semi-Markov Models">
+  <meta name="description" content="MCMC for State Space Model Estimation">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://paschermayr.github.io/post/statespacemodels-2-hsmm/">
+  <link rel="alternate" hreflang="en-us" href="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/">
 
   
 
@@ -218,7 +218,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://paschermayr.github.io/post/statespacemodels-2-hsmm/">
+  <link rel="canonical" href="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/">
 
   
   
@@ -233,15 +233,15 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Welcome!">
-  <meta property="og:url" content="https://paschermayr.github.io/post/statespacemodels-2-hsmm/">
-  <meta property="og:title" content="State Space Models Everywhere! Round 1: HSMM | Welcome!">
-  <meta property="og:description" content="Introduction to Hidden semi-Markov Models"><meta property="og:image" content="https://paschermayr.github.io/post/statespacemodels-2-hsmm/featured.PNG">
-  <meta property="twitter:image" content="https://paschermayr.github.io/post/statespacemodels-2-hsmm/featured.PNG"><meta property="og:locale" content="en-us">
+  <meta property="og:url" content="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/">
+  <meta property="og:title" content="Bayesian Inference on State Space Models - Part 3 | Welcome!">
+  <meta property="og:description" content="MCMC for State Space Model Estimation"><meta property="og:image" content="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/featured.jpg">
+  <meta property="twitter:image" content="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2020-09-18T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2020-10-30T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2020-09-18T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-10-30T00:00:00&#43;00:00">
   
 
   
@@ -265,16 +265,16 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://paschermayr.github.io/post/statespacemodels-2-hsmm/"
+    "@id": "https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/"
   },
-  "headline": "State Space Models Everywhere! Round 1: HSMM",
+  "headline": "Bayesian Inference on State Space Models - Part 3",
   
   "image": [
-    "https://paschermayr.github.io/post/statespacemodels-2-hsmm/featured.PNG"
+    "https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/featured.jpg"
   ],
   
-  "datePublished": "2020-09-18T00:00:00Z",
-  "dateModified": "2020-09-18T00:00:00Z",
+  "datePublished": "2020-10-30T00:00:00Z",
+  "dateModified": "2020-10-30T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -289,7 +289,7 @@
       "url": "https://paschermayr.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Introduction to Hidden semi-Markov Models"
+  "description": "MCMC for State Space Model Estimation"
 }
 </script>
 
@@ -307,7 +307,7 @@
 
 
 
-  <title>State Space Models Everywhere! Round 1: HSMM | Welcome!</title>
+  <title>Bayesian Inference on State Space Models - Part 3 | Welcome!</title>
 
 </head>
 
@@ -557,10 +557,12 @@
 
   
   
+    
+  
 
 
 <div class="article-container pt-3">
-  <h1>State Space Models Everywhere! Round 1: HSMM</h1>
+  <h1>Bayesian Inference on State Space Models - Part 3</h1>
 
   
 
@@ -588,7 +590,7 @@
     
       
     
-    Sep 18, 2020
+    Oct 30, 2020
   </span>
   
 
@@ -597,7 +599,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    6 min read
+    8 min read
   </span>
   
 
@@ -605,7 +607,7 @@
   
   
   <span class="middot-divider"></span>
-  <a href="/post/statespacemodels-2-hsmm/#disqus_thread"></a>
+  <a href="/post/statespacemodels-3-inference-on-state-space-models-part-3/#disqus_thread"></a>
   
 
   
@@ -635,10 +637,10 @@
 </div>
 
 
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 418px; max-height: 196px;">
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 413px;">
   <div style="position: relative">
-    <img src="/post/statespacemodels-2-hsmm/featured.PNG" alt="" class="featured-image">
-    <span class="article-header-caption">Image credit: <a href="http://glench.com/tmnt/#Hidden_semi-markov_Model"><strong>Glench</strong></a></span>
+    <img src="/post/statespacemodels-3-inference-on-state-space-models-part-3/featured_hu9877233ba78debaaae6e4e08b72ab3d6_1003078_720x0_resize_q90_lanczos.jpg" alt="" class="featured-image">
+    <span class="article-header-caption">Image credit: <a href="https://en.wikipedia.org/wiki/Monte_Carlo"><strong>Monte Carlo</strong></a></span>
   </div>
 </div>
 
@@ -647,197 +649,215 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>Introducing Hidden semi-Markov Models</p>
-<h1 id="hi-there">Hi there!</h1>
-<p>In the 
-<a href="https://paschermayr.github.io/post/statespacemodels-1-a-primer-on-state-space-models/" target="_blank" rel="noopener">last article</a>, you got a first impression about state space models and, as an example,
-the basic hidden Markov model:
-<img src="/files/post/BayesianHMM.png" alt="A plot"></p>
-<p>We already talked about various advantages of state space models, but - depending on the features of the underlying data that you want to model -
-basic HMMs just might not be good enough. Here is why:</p>
-<h1 id="a-geometric-duration-distribution-is-a-problem">A geometric duration distribution is a problem</h1>
-<p>Let us focus on the unobserved process, $S_t$, for now. We are interested in the actual time
-spent in a particular state. Let us calculate the probability  that we are currently
-in state $i$ and remain here for the next two time steps. For a discrete 2-state, homogenous Markov chain, using the chain rule and the Markov assumption of the basic model, we can write:
-$$
-\begin{equation}
-\begin{split}
-P( S_{t+3} = j, S_{t+2} = i, S_{t+1} = i \mid S_{t} = i ) &amp;= P( S_{t+3} = j\mid S_{t+2} = i) P(S_{t+2} = i,  \mid S_{t+1} = i) P( S_{t+1} = i \mid S_{t} = i ) \\<br>
-&amp;= (1 - \tau_{ii}) * \tau_{ii}^2
-\end{split}
-\label{eq:HMM_geom1}
-\end{equation}
-$$</p>
-<p>In general, for $t+k$ steps:
-$$
-\begin{equation}
-\begin{split}
-P( S_{t+k} = j, \dots, S_{t+1} = i \mid S_{t} = i ) &amp;= (1 - \tau_{ii}) * \tau_{ii}^{k-1} \\<br>
-&amp;= Geometric_{ \tau_{ii} },
-\end{split}
-\label{eq:HMM_geom2}
-\end{equation}
-$$
-where the geometric distribution has to be interpreted as the length of state duration up to and including the transition to the other state.
-Why is this a problem?
-The hidden states you model may switch more rapidly than you would like them to
-do. Even if you assign parameter very close to the boundaries of its support, the duration distribution will always implicitly be geometric.
-That makes it unsuitable if you want to model something that is supposed to stay in a particular state for a long time. As an example, let us say you want to model economic cycles
-of a developed country. You typically expect an expansion to last on average 5-10 years, but modelling such long durations is unfeasable with daily input data for an HMM. To circumvent this issue, one may
-use weekly or monthly data, but why give up data and essential information if alternatives are available?</p>
-<h1 id="from-hmms-to-hsmms">From HMMs to HSMMs</h1>
-<p>As a solution, we can model these state duration probabilities explicitly. Such models are known as hidden semi-Markov models (HSMM), and they are a powerful
-generalization of the basic HMM. HSMMs have an additional latent variable, lets call it $D_t$ for duration that
-determines how long one may stay in any given state. $S_t$ will only have the Markov property while transitioning,
-otherwise it is determined by $D_t$. The tuple $\{ S_t, D_t \}$ forms a so-called semi-Markov chain.
-Let us visualize this:
-<img src="/files/post/BayesianHSMM.png" alt="A plot"></p>
-<p>In an HSMM, transitions are allowed only at the end of each state, resulting in the following distributional forms:</p>
-<p>$$
-\begin{equation}
-S_t \mid s_{t-1}, d_{t-1} \sim P( S_t \mid s_{t-1}, d_{t-1} ) = \begin{cases}
-\delta( S_{t} = s_{t-1}) &amp;\text{ $d_{t-1} &gt; 0$ }\\<br>
-\mathcal{T}_{s_{t-1},.} &amp;\text{ $d_{t-1} = 0$ }
-\end{cases}
-\label{eq:EDHMM_transition}
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-D_t \mid s_{t}, d_{t-1} \sim P(D_t \mid s_{t}, d_{t-1}) = \begin{cases}
-\delta( D_{t} = d_{t-1} - 1) &amp;\text{ $d_{t-1} &gt; 0$ } \\<br>
-\mathcal{D}_{s_{t}} &amp;\text{ $d_{t-1} = 0$ }
-\end{cases}
-\label{eq:EDHMM_duration}
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-E_t \mid s_{t} \sim \mathcal{O}_{s_{t}}
-\label{eq:EDHMM_observation}
-\end{equation}
-$$</p>
-<p>where $\delta(a,b)$ is the Kronecker product and equals $1$ if $a = b$ and $0$ otherwise.</p>
-<p>Note that, as we model the duration explicitly now, we have to slightly adjust the
-transition matrix that we used in the 
-<a href="https://paschermayr.github.io/post/statespacemodels-1-a-primer-on-state-space-models/" target="_blank" rel="noopener">previous article</a>. The diagonal elements of the transition matrix - the probability to remain in any given state in the next time step,
-which formally is depicted as $\tau_{i,i} = P(s_{t+1} = i \mid s_{t} = i)$ - are now set to 0. The rest of the row elements in the transition matrix still need to sum up to 1. If you have trouble
-understanding that, check out the code below.</p>
-<h1 id="let-us-code">Let us code!</h1>
-<p>To understand the code for sampling a single trajectory of said HSMM more clearly, keep reading:</p>
+      <p>The MCMC in PMCMC - Making a Proposal Distribution for State Space Model Parameter</p>
+<h1 id="almost-done">Almost done!</h1>
+<p>In my previous blog posts
+
+<a href="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/" target="_blank" rel="noopener">here</a>
+and 
+<a href="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-2/" target="_blank" rel="noopener">here</a>,
+we explored a general framework on how to conduct parameter estimation
+for state space models (SSM), and took a first step in implementing this machinery. In order to
+apply Particle MCMC (PMCMC), we have to</p>
 <ul>
 <li>
-<p>The function input are the model distributions stated above.</p>
+<ol>
+<li>Find a good proposal distribution $f(\theta^{\star} \mid \theta)$ for $ \theta^{\star}$.</li>
+</ol>
 </li>
 <li>
-<p>The function output is a single trajectory of the observed and latent variables.</p>
+<ol start="2">
+<li>Find a good proposal distribution $P(s^\star_{1:T} \mid \theta^{\star}, e_{1:T})$ for $ S^{\star}_{1:T}$.</li>
+</ol>
 </li>
 <li>
-<p>Before we start the for-loop over time, we need to define the initial state. If the latent states of the data are conceived as a subsequence of a
-long-running process, the probability of the initial state should be set to the stationary state probabilities
-of this unobserved Markov chain. This plays an important part in the estimation paradigm, but for now we simply choose any
-of the available states with equal probability. Don&rsquo;t worry if this sounds difficult - we will come back to it in a later article.</p>
-</li>
-<li>
-<p>The for-loop samples the new state given the old state, and then the observation given the new state, over time. The corresponding distributions
-are stated above.</p>
-</li>
-<li>
-<p>In the HSMM case, we check if the duration in the previous time step reached 0. If true, we sample a new state and duration given this state. If not,
-the current state continues, and we decrease the duration count by 1.</p>
-</li>
-<li>
-<p>That&rsquo;s it! Let us have a look:</p>
+<ol start="3">
+<li>Find a sufficiently &lsquo;good&rsquo; likelihood approximation $\hat{\mathcal{L}}$$_{\theta}(e_{1:T})$ that we can plug into the acceptance rate.</li>
+</ol>
 </li>
 </ul>
-<pre><code class="language-julia">
-using Distributions
+<p>We have already tackled the latter two problems in the previous posts, so what about the first one?</p>
+<h1 id="the-mcmc-in-pmcmc">The MCMC in PMCMC</h1>
+<p>If we want to jointly sample the parameter vector $\theta$, the first thing we need to do is to check the corresponding boundary conditions
+of our parameter. For instance, if we want to estimate parameter of univariate normal observations, the mean parameter is
+typically defined on the whole Reals, while the variance is constrained to be positive. There are several ways to proceed:</p>
+<ul>
+<li>
+<p>i. We could, in principle, use some multivariate proposal distribution $f( . \mid \theta)$, and reject all proposals where one of the parameter
+falls outside of the corresponding boundaries. This is, as you already guessed, very wasteful.</p>
+</li>
+<li>
+<p>ii. Alternatively, you could use a truncated multivariate proposal distribution. Note that this is NOT the same as (i.), as one needs
+to adjust the normalisation constants in the MH acceptance ratio, see
 
-function sampleHSMM(evidence::Vector{&lt;:Distribution}, duration::Vector{&lt;:Distribution}, transition::Matrix{Float64}, T::Int64)
-        #Initialize states and observations
-        state = zeros(Int64, T)
-        state_length = zeros(Int64, T)
-        observation = zeros(Float64, T)
+<a href="https://darrenjw.wordpress.com/tag/truncate/" target="_blank" rel="noopener">this blog post</a> for a more detailed explanation.
+This approach is intuitively more efficient than the first option, but highly model specific and sometimes difficult to track for errors.</p>
+</li>
+<li>
+<p>iii. Another possibility is to first transform the corresponding parameter into an unconstrained space, perform the MCMC step in this
+unconstrained space, and then transform the proposed parameter back into the original space for the likelihood evaluation.
+In this case, we have to be careful when calculating the prior. As we are now working with the transformed
+parameter, we need to adjust the prior distribution with the Jacobian of the transform (keyword: push-forward measure). If you have trouble understanding that,
+I recommend 
+<a href="https://stats.stackexchange.com/questions/174962/when-re-parametrizing-a-likelihood-function-is-it-enough-just-to-plug-in-the-tr" target="_blank" rel="noopener">this explanation</a>
+before you proceed reading.
+This approach has a much higher initial workload, but to my mind is the most general and effective way to perform
+MCMC, and almost all libraries that you use work in this way under the hood. Consequently, we will focus on the third case.</p>
+</li>
+</ul>
+<p>So, how can we code this up? The most straightforward way to implement this approach is by using information from the corresponding
+prior: boundaries, length and dimension of each parameter can be inferred from here. I will use a new Julia package
 
-        #Sample initial s from initial distribution
-        state[1] = rand( 1:size(transition, 1) ) #not further discussed here
-        state_length[1] = rand( duration[ state[1] ] ) #not further discussed here
-        observation[1] = rand( evidence[ state[1] ] )
+<a href="https://github.com/TuringLang/Bijectors.jl" target="_blank" rel="noopener">Bijectors.jl</a> that makes the workflow significantly easier, but there are similar packages
+in other languages as well.</p>
+<h1 id="coding-it-all-up">Coding it all up</h1>
+<p>In my 
+<a href="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-2/" target="_blank" rel="noopener">last post</a>, we implemented a particle
+filter for basic hidden Markov models, so let us continue to use this example.
+Hence, we are interested in the mean and variance parameter for each state, and the corresponding transition matrix of the
+latent Markov chain. For now, let us assume the transition matrix is known, so we can implement
+the MCMC machinery for scalar based parameter, and do not need to extend our functions for vector valued parameter. To my mind,
+this would put too much attention to the code rather than the actual topic.
+We start by creating a container that can hold one parameter and its corresponding priors.</p>
+<pre><code class="language-julia">using Distributions, Bijectors, Parameters
+import Base: count
 
-        #Loop over Time Index
-        for time in 2:T
-                if state_length[time-1] &gt; 0
-                        state[time] = state[time-1]
-                        state_length[time] = state_length[time-1] - 1
-                        observation[time] = rand( evidence[ state[time] ] )
-                else
-                        state[time] = rand( Categorical( transition[ state[time-1], :] ) )
-                        state_length[time] = rand( duration[ state[time] ] )
-                        observation[time] = rand( evidence[ state[time] ] )
-                end
-        end
-        #Return output
-        return state, state_length, observation
+#A container with necessary information about θ
+mutable struct ParamInfo{T, D&lt;:Union{Nothing, &lt;:Distributions.Distribution} }
+    value   :: T #Can be Real, Integer, or a Arrays composed of it
+    prior   :: D #Corresponding prior of value, needs to fulfill boundary constraints!
+end
+ParamInfo(value::T) where {T} = ParamInfo(value, nothing)
+
+#Check the number of parameter in ParamInfo struct
+function count(paraminfo::ParamInfo)
+    return length(paraminfo.value)
 end
 </code></pre>
-<pre><code>sampleHSMM (generic function with 1 method)
+<pre><code>count (generic function with 17 methods)
 </code></pre>
-<p>Let us generate one sample path of said model. I am still using normal observation distributions, but added a third state  so you can have a visual example from the transition matrix adjustment talk above.
-I will use a Negative Binomial distribution to model the state duration, but you are free to choose whatever you like best as long as the support lies on the non-negative Integers.</p>
-<pre><code class="language-julia">
-using Plots
-
-T = 5000
-evidence =  [Normal(0., .5), Normal(0.,1.), Normal(0.,2.)]
-duration =  [NegativeBinomial(100., .2), NegativeBinomial(10., .05), NegativeBinomial(50.,0.5)]
-transition = [0.0 0.5 0.5;
-              0.8 0.0 0.2;
-              0.8 0.2 0.0;]
-state, state_length, observation = sampleHSMM(evidence, duration, transition, T)
-
-plot( layout=(3,1), label=false, margin=-2Plots.px)
-plot!(observation, ylabel=&quot;data&quot;, label=false, subplot=1, color=&quot;gold4&quot;)
-plot!(state, yticks = (1:3), ylabel=&quot;state&quot;, label=false, subplot=2, color=&quot;black&quot;)
-plot!(state_length, ylabel=&quot;duration&quot;, label=false, subplot=3, color=&quot;blue&quot;)
+<p>Note that I also defined a function that informs us about the parameter size inside this container. Next, we will make a
+summary container for all the different parameter that we will need during the tutorial - i.e., mean and variance parameter of a univariate Normal distribution
+for each state in the basic HMM case.</p>
+<pre><code class="language-julia">#A summary container for all relevant parameter
+mutable struct HMMParameter
+    μ   :: Vector{ParamInfo} #Observation Distribution Mean
+    σ   :: Vector{ParamInfo} #Observation Distribution Variance
+end
 </code></pre>
+<p>Further, we want to define some helper functions that enable us to transform and inverse transform the parameter
+in said container. Remember that our goal is to sample from some unconstrained space, and then inverse transform said parameter back to our constrained space. This will help us to accept more parameter proposals in the MCMC step. Note that I will use a subscript t for
+certain variables in order to indicate that the operation takes place in the transformed space.</p>
+<pre><code class="language-julia">#Wrapper to transform θ into an unconstrained space
+function transform(parameter::ParamInfo)
+    return Bijectors.link(parameter.prior, parameter.value)
+end
+#Wrapper to transform θₜ back into the original space, and store it in parameter struct
+function inverse_transform!(parameter::ParamInfo, θₜ::T) where {T}
+    value = Bijectors.invlink(parameter.prior, θₜ)
+    @pack! parameter = value
+    return value
+end
 
+#The same two functions dispatched on the summary container
+function transform(parameter::HMMParameter)
+    θₜ = Float64[]
+    for field_name in fieldnames( typeof( parameter ) )
+        sub_field = getfield(parameter, field_name )
+        append!(θₜ, transform.(sub_field) )
+    end
+    return θₜ
+end
+function inverse_transform!(parameter::HMMParameter, θₜ::Vector{T}) where {T}
+    counter = 1
+    for field_name in fieldnames( typeof( parameter ) )
+        sub_field = getfield(parameter, field_name )
+        dim = sum( count.(sub_field) )
+        inverse_transform!.( sub_field, θₜ[ counter:(-1 + counter + dim )] )
+        counter += dim
+    end
+end
+</code></pre>
+<pre><code>inverse_transform! (generic function with 2 methods)
+</code></pre>
+<p>We must define this for both the individual ParamInfo as well as the summary container. This is, admittedly, not a straightforward process. However,
+the important part is that we now have a container that holds all the
+unknown observation parameter that we need in the HMM case, and we can freely transform and inverse transform parameter
+that are contained in there. If you understand this goal, then you are perfectly fine to continue.</p>
+<p>As an example, let us now create an object that contains the mean and variance parameter of a univariate Normal two-state HMM. Next,
+we transform all parameter into an unconstrained space, sample the transformed parameter and inverse transform them back into the original space:</p>
+<pre><code class="language-julia">#Create a Vector of univariate Normal Model parameter and assign a prior to each of them:
+μᵥ = [ParamInfo(-2.0, Normal() ), ParamInfo(2.0, Normal() )] #Initial value and Prior
+σᵥ = [ParamInfo(1.0, Gamma() ), ParamInfo(1.0, Gamma(2,2) )] #Initial value and Prior
 
+hmmparam = HMMParameter(μᵥ, σᵥ)
 
+#Transform parameter:
+transform(hmmparam)
 
+#Sample parameter from an unconstrained distribution, then inverse transform and plug into our container:
+θₜ_proposed = randn(4)
+inverse_transform!(hmmparam, θₜ_proposed)
+hmmparam #Check that parameter in hmmparam fulfill boundary conditions
+</code></pre>
+<p>Well done, we achieved our initial goal! You can run the above code several times, and will see that the plugged in
+parameter in the constrained space will satisfy the corresponding boundary conditions, even though we sampled from a multivariate
+Normal distribution. At the very beginning, I mentioned that when transforming parameter in an unconstrained space,
+one has to adjust the corresponding prior. These adjustments will all be handeled by the Bijectors package, so
+we can conveniently write a function that calculates the prior for each of our parameter and returns the sum of it.
+This will be helpful when we run the PMCMC algorithm in the next blog post.</p>
+<pre><code class="language-julia">#function to calculate prior including Jacobian adjustment
+function calculate_logπₜ(parameter::ParamInfo)
+    return logpdf_with_trans(parameter.prior, parameter.value, true)
+end
 
+#Wrapper to calculate prior including jacobian adjustment on all parameter
+function calculate_logπₜ(parameter::HMMParameter)
+    πₜ = 0.0
+    for field_name in fieldnames( typeof( parameter ) )
+        sub_field = getfield(parameter, field_name )
+        πₜ += sum( calculate_logπₜ.(sub_field) )
+    end
+    return πₜ
+end
+</code></pre>
+<pre><code>calculate_logπₜ (generic function with 2 methods)
+</code></pre>
+<p>Perfect! Now we are almost done for today,
+the last thing to do is to create a MCMC sampler. We will use a straightforward Metropolis algorithm with a multivariate Normal proposal distribution.
+As before, we will first define a container with all the necessary information and a function on it to sample via this object:</p>
+<pre><code class="language-julia"># Container with necessary information for a Metropolis MCMC step
+mutable struct Metropolis{T&lt;:Real}
+    θₜ           ::  Vector{T}
+    scaling     ::  Float64
+end
 
-
-
-
-
-
-
-
-
-
-<figure >
-
-
-  <a data-fancybox="" href="/files/post/2%20HSMM_2_1.png" >
-
-
-  <img src="/files/post/2%20HSMM_2_1.png" alt=""  >
-</a>
-
-
-
-</figure>
-
-<p>To see why the HSMM is a large improvement over the previous model, try to mimic the average state duration with the code that we used for the
-
-<a href="https://paschermayr.github.io/post/statespacemodels-1-a-primer-on-state-space-models/" target="_blank" rel="noopener">basic HMM model</a>. Likewise, you can choose a geometric state duration in the example here to mimic the HMM case. While the latter is done easily,
-the former should almost be unfeasable. As always, you can download the full script from my 
-<a href="https://github.com/paschermayr/Shared-Code" target="_blank" rel="noopener">GitHub account</a>.</p>
-<h1 id="thats-it-for-today">That&rsquo;s it for today!</h1>
-<p>Well done! Initially, I wanted to write an article about several model extensions, but I quickly figured that this would be much
-too long for what I was planning to do, and therefore focused on HSMMs only in this post.
-I am going to gradually write follow-up posts on this one, as there exist many more state space models with an interesting structure, such as autoregressive or factorial HMMs.
-See you soon!</p>
+# Function to propose a Metropolis step
+function propose(sampler::Metropolis)
+    @unpack θₜ, scaling = sampler
+    return rand( MvNormal(θₜ, scaling) )
+end
+</code></pre>
+<pre><code>propose (generic function with 1 method)
+</code></pre>
+<p>Scaling is a tuning parameter that determines how large the proposal steps for the parameter will be. The larger the tuning parameter,
+the larger the proposed movements will be, which might result in a lower acceptance rate. Check this out yourself. At the end, we check our framework by assigning an initial parameter value
+and sampling from there via this MCMC sampler:</p>
+<pre><code class="language-julia">#Create an initial sampler, and propose new model parameter:
+θₜ_inital = randn(4)
+metropolissampler = Metropolis(θₜ_inital, 1/length(θₜ_inital) )
+propose(metropolissampler)
+</code></pre>
+<pre><code>4-element Array{Float64,1}:
+ -0.5791553185118626
+  0.5875000886407763
+ -0.09563827588507412
+  1.1869926689230335
+</code></pre>
+<h1 id="way-to-go">Way to go!</h1>
+<p>This section was more straightforward than the previous one! We can now store, transform and inverse transform model parameter
+of a basic HMM. We can also create a basic MCMC algorithm to sample said parameter. In my final post, we will combine the previous instalments of this series
+and implement the PMCMC algorithm to estimate HMM model and state trajectory parameter jointly. See you soon!</p>
 
     </div>
 
@@ -852,7 +872,11 @@ See you soon!</p>
   
   <a class="badge badge-light" href="/tag/state-space-models/">State Space Models</a>
   
-  <a class="badge badge-light" href="/tag/hidden-semi-markov-model/">Hidden semi-Markov Model</a>
+  <a class="badge badge-light" href="/tag/particle-mcmc/">Particle MCMC</a>
+  
+  <a class="badge badge-light" href="/tag/hidden-markov-model/">Hidden Markov Model</a>
+  
+  <a class="badge badge-light" href="/tag/mcmc/">MCMC</a>
   
   <a class="badge badge-light" href="/tag/julia/">Julia</a>
   
@@ -871,7 +895,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https://paschermayr.github.io/post/statespacemodels-2-hsmm/&amp;text=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/&amp;text=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%203" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -884,7 +908,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https://paschermayr.github.io/post/statespacemodels-2-hsmm/&amp;t=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/&amp;t=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%203" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -897,7 +921,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="mailto:?subject=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM&amp;body=https://paschermayr.github.io/post/statespacemodels-2-hsmm/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%203&amp;body=https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -910,7 +934,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://paschermayr.github.io/post/statespacemodels-2-hsmm/&amp;title=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/&amp;title=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%203" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -923,7 +947,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="whatsapp://send?text=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM%20https://paschermayr.github.io/post/statespacemodels-2-hsmm/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%203%20https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -936,7 +960,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://paschermayr.github.io/post/statespacemodels-2-hsmm/&amp;title=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/&amp;title=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%203" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1120,13 +1144,13 @@ See you soon!</p>
       
       <li><a href="/post/statespacemodels-3-inference-on-state-space-models-part-4/">Bayesian Inference on State Space Models - Part 4</a></li>
       
-      <li><a href="/post/statespacemodels-3-inference-on-state-space-models-part-3/">Bayesian Inference on State Space Models - Part 3</a></li>
-      
       <li><a href="/post/statespacemodels-3-inference-on-state-space-models-part-2/">Bayesian Inference on State Space Models - Part 2</a></li>
       
       <li><a href="/post/statespacemodels-1-a-primer-on-state-space-models/">A Primer on State Space Models</a></li>
       
       <li><a href="/post/statespacemodels-3-inference-on-state-space-models-part-1/">Bayesian Inference on State Space Models - Part 1</a></li>
+      
+      <li><a href="/post/statespacemodels-2-hsmm/">State Space Models Everywhere! Round 1: HSMM</a></li>
       
     </ul>
   </div>

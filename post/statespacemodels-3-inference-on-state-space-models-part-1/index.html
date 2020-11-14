@@ -27,10 +27,10 @@
   
     
   
-  <meta name="description" content="Introduction to Hidden semi-Markov Models">
+  <meta name="description" content="Bayesian Inference on State Space Models">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://paschermayr.github.io/post/statespacemodels-2-hsmm/">
+  <link rel="alternate" hreflang="en-us" href="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/">
 
   
 
@@ -218,7 +218,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://paschermayr.github.io/post/statespacemodels-2-hsmm/">
+  <link rel="canonical" href="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/">
 
   
   
@@ -233,15 +233,15 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Welcome!">
-  <meta property="og:url" content="https://paschermayr.github.io/post/statespacemodels-2-hsmm/">
-  <meta property="og:title" content="State Space Models Everywhere! Round 1: HSMM | Welcome!">
-  <meta property="og:description" content="Introduction to Hidden semi-Markov Models"><meta property="og:image" content="https://paschermayr.github.io/post/statespacemodels-2-hsmm/featured.PNG">
-  <meta property="twitter:image" content="https://paschermayr.github.io/post/statespacemodels-2-hsmm/featured.PNG"><meta property="og:locale" content="en-us">
+  <meta property="og:url" content="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/">
+  <meta property="og:title" content="Bayesian Inference on State Space Models - Part 1 | Welcome!">
+  <meta property="og:description" content="Bayesian Inference on State Space Models"><meta property="og:image" content="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/featured.jpg">
+  <meta property="twitter:image" content="https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2020-09-18T00:00:00&#43;00:00">
+      <meta property="article:published_time" content="2020-10-02T00:00:00&#43;00:00">
     
-    <meta property="article:modified_time" content="2020-09-18T00:00:00&#43;00:00">
+    <meta property="article:modified_time" content="2020-10-02T00:00:00&#43;00:00">
   
 
   
@@ -265,16 +265,16 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://paschermayr.github.io/post/statespacemodels-2-hsmm/"
+    "@id": "https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/"
   },
-  "headline": "State Space Models Everywhere! Round 1: HSMM",
+  "headline": "Bayesian Inference on State Space Models - Part 1",
   
   "image": [
-    "https://paschermayr.github.io/post/statespacemodels-2-hsmm/featured.PNG"
+    "https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/featured.jpg"
   ],
   
-  "datePublished": "2020-09-18T00:00:00Z",
-  "dateModified": "2020-09-18T00:00:00Z",
+  "datePublished": "2020-10-02T00:00:00Z",
+  "dateModified": "2020-10-02T00:00:00Z",
   
   "author": {
     "@type": "Person",
@@ -289,7 +289,7 @@
       "url": "https://paschermayr.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Introduction to Hidden semi-Markov Models"
+  "description": "Bayesian Inference on State Space Models"
 }
 </script>
 
@@ -307,7 +307,7 @@
 
 
 
-  <title>State Space Models Everywhere! Round 1: HSMM | Welcome!</title>
+  <title>Bayesian Inference on State Space Models - Part 1 | Welcome!</title>
 
 </head>
 
@@ -557,10 +557,12 @@
 
   
   
+    
+  
 
 
 <div class="article-container pt-3">
-  <h1>State Space Models Everywhere! Round 1: HSMM</h1>
+  <h1>Bayesian Inference on State Space Models - Part 1</h1>
 
   
 
@@ -588,7 +590,7 @@
     
       
     
-    Sep 18, 2020
+    Oct 2, 2020
   </span>
   
 
@@ -605,7 +607,7 @@
   
   
   <span class="middot-divider"></span>
-  <a href="/post/statespacemodels-2-hsmm/#disqus_thread"></a>
+  <a href="/post/statespacemodels-3-inference-on-state-space-models-part-1/#disqus_thread"></a>
   
 
   
@@ -635,10 +637,10 @@
 </div>
 
 
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 418px; max-height: 196px;">
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 540px;">
   <div style="position: relative">
-    <img src="/post/statespacemodels-2-hsmm/featured.PNG" alt="" class="featured-image">
-    <span class="article-header-caption">Image credit: <a href="http://glench.com/tmnt/#Hidden_semi-markov_Model"><strong>Glench</strong></a></span>
+    <img src="/post/statespacemodels-3-inference-on-state-space-models-part-1/featured_hu6db9792ac3fb053193a03f8c6caf49b1_181021_720x0_resize_q90_lanczos.jpg" alt="" class="featured-image">
+    <span class="article-header-caption">Image credit: <a href="https://www.statisticshowto.com/posterior-distribution-probability/"><strong>statisticshowto</strong></a></span>
   </div>
 </div>
 
@@ -647,197 +649,104 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>Introducing Hidden semi-Markov Models</p>
+      <p>Inference on State Space Models - an Overview</p>
 <h1 id="hi-there">Hi there!</h1>
-<p>In the 
-<a href="https://paschermayr.github.io/post/statespacemodels-1-a-primer-on-state-space-models/" target="_blank" rel="noopener">last article</a>, you got a first impression about state space models and, as an example,
-the basic hidden Markov model:
-<img src="/files/post/BayesianHMM.png" alt="A plot"></p>
-<p>We already talked about various advantages of state space models, but - depending on the features of the underlying data that you want to model -
-basic HMMs just might not be good enough. Here is why:</p>
-<h1 id="a-geometric-duration-distribution-is-a-problem">A geometric duration distribution is a problem</h1>
-<p>Let us focus on the unobserved process, $S_t$, for now. We are interested in the actual time
-spent in a particular state. Let us calculate the probability  that we are currently
-in state $i$ and remain here for the next two time steps. For a discrete 2-state, homogenous Markov chain, using the chain rule and the Markov assumption of the basic model, we can write:
-$$
-\begin{equation}
-\begin{split}
-P( S_{t+3} = j, S_{t+2} = i, S_{t+1} = i \mid S_{t} = i ) &amp;= P( S_{t+3} = j\mid S_{t+2} = i) P(S_{t+2} = i,  \mid S_{t+1} = i) P( S_{t+1} = i \mid S_{t} = i ) \\<br>
-&amp;= (1 - \tau_{ii}) * \tau_{ii}^2
-\end{split}
-\label{eq:HMM_geom1}
-\end{equation}
-$$</p>
-<p>In general, for $t+k$ steps:
-$$
-\begin{equation}
-\begin{split}
-P( S_{t+k} = j, \dots, S_{t+1} = i \mid S_{t} = i ) &amp;= (1 - \tau_{ii}) * \tau_{ii}^{k-1} \\<br>
-&amp;= Geometric_{ \tau_{ii} },
-\end{split}
-\label{eq:HMM_geom2}
-\end{equation}
-$$
-where the geometric distribution has to be interpreted as the length of state duration up to and including the transition to the other state.
-Why is this a problem?
-The hidden states you model may switch more rapidly than you would like them to
-do. Even if you assign parameter very close to the boundaries of its support, the duration distribution will always implicitly be geometric.
-That makes it unsuitable if you want to model something that is supposed to stay in a particular state for a long time. As an example, let us say you want to model economic cycles
-of a developed country. You typically expect an expansion to last on average 5-10 years, but modelling such long durations is unfeasable with daily input data for an HMM. To circumvent this issue, one may
-use weekly or monthly data, but why give up data and essential information if alternatives are available?</p>
-<h1 id="from-hmms-to-hsmms">From HMMs to HSMMs</h1>
-<p>As a solution, we can model these state duration probabilities explicitly. Such models are known as hidden semi-Markov models (HSMM), and they are a powerful
-generalization of the basic HMM. HSMMs have an additional latent variable, lets call it $D_t$ for duration that
-determines how long one may stay in any given state. $S_t$ will only have the Markov property while transitioning,
-otherwise it is determined by $D_t$. The tuple $\{ S_t, D_t \}$ forms a so-called semi-Markov chain.
-Let us visualize this:
-<img src="/files/post/BayesianHSMM.png" alt="A plot"></p>
-<p>In an HSMM, transitions are allowed only at the end of each state, resulting in the following distributional forms:</p>
-<p>$$
-\begin{equation}
-S_t \mid s_{t-1}, d_{t-1} \sim P( S_t \mid s_{t-1}, d_{t-1} ) = \begin{cases}
-\delta( S_{t} = s_{t-1}) &amp;\text{ $d_{t-1} &gt; 0$ }\\<br>
-\mathcal{T}_{s_{t-1},.} &amp;\text{ $d_{t-1} = 0$ }
-\end{cases}
-\label{eq:EDHMM_transition}
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-D_t \mid s_{t}, d_{t-1} \sim P(D_t \mid s_{t}, d_{t-1}) = \begin{cases}
-\delta( D_{t} = d_{t-1} - 1) &amp;\text{ $d_{t-1} &gt; 0$ } \\<br>
-\mathcal{D}_{s_{t}} &amp;\text{ $d_{t-1} = 0$ }
-\end{cases}
-\label{eq:EDHMM_duration}
-\end{equation}
-$$</p>
-<p>$$
-\begin{equation}
-E_t \mid s_{t} \sim \mathcal{O}_{s_{t}}
-\label{eq:EDHMM_observation}
-\end{equation}
-$$</p>
-<p>where $\delta(a,b)$ is the Kronecker product and equals $1$ if $a = b$ and $0$ otherwise.</p>
-<p>Note that, as we model the duration explicitly now, we have to slightly adjust the
-transition matrix that we used in the 
-<a href="https://paschermayr.github.io/post/statespacemodels-1-a-primer-on-state-space-models/" target="_blank" rel="noopener">previous article</a>. The diagonal elements of the transition matrix - the probability to remain in any given state in the next time step,
-which formally is depicted as $\tau_{i,i} = P(s_{t+1} = i \mid s_{t} = i)$ - are now set to 0. The rest of the row elements in the transition matrix still need to sum up to 1. If you have trouble
-understanding that, check out the code below.</p>
-<h1 id="let-us-code">Let us code!</h1>
-<p>To understand the code for sampling a single trajectory of said HSMM more clearly, keep reading:</p>
+<p>In my previous posts, I introduced two discrete state space model (SSM) variants: the
+
+<a href="https://paschermayr.github.io/post/statespacemodels-1-a-primer-on-state-space-models/" target="_blank" rel="noopener">hidden Markov model</a> and
+
+<a href="https://paschermayr.github.io/post/statespacemodels-2-hsmm/" target="_blank" rel="noopener">hidden semi-Markov model</a>. However, in all code examples,
+model parameter were already given - what happens if we need to estimate them? This post is the first of a series of four blog entries, in which I will explain a general framework to perform parameter
+inference on SSMs and implement a basic example for demonstration. Ideally, I would make all three posts as applied as my previous articles, but I have to use some theory in the
+beginning to make things easier going forward.</p>
+<p>While SSMs are very flexible and can describe data with a complex structure, parameter estimation can be very challenging.
+Analytical forms of the corresponding likelihood functions are only available in special cases
+and, thus, standard parameter optimization routines might be unfeasible. Consequently, the major challenge in solving SSMs is the generally intractable
+likelihood function $p_{\theta}(e_{1:t}) = \int p_{\theta}(e_{1:t}, s_{1:t}) d s_{1:t}$, which integrates over the (unknown) latent state trajectory. As previously mentioned,
+$E_t$ is the observed data and $S_t$ the corresponding latent state.</p>
+<h1 id="so-what-can-we-do">So what can we do?</h1>
+<p>If both $E_t$ and $S_t$ follow a Normal distribution, one may analytically estimate the corresponding model parameter via the so called Kalman equations,
+but given these very specific assumptions, we will not concentrate on this special case going forward.
+If $S_{1:T}$ is discrete, then the most common point estimation technique is the EM-Algorithm.
+In this case, one can use common filtering techniques, explained in (Rabiner, 1989), to iteratively calculate state probabilities and update model parameter.
+Once the EM-Algorithm has reached some convergence criterion, one may estimate the most likely state trajectory given the estimated parameter. I will not go into
+much detail here because this procedure has been explained on many occasions and will instead refer to the literature above.
+However, both approaches do not work in many cases. The former technique only works with very specific model assumptions.
+The latter technique is not available in case $S_{1:T}$ is continuous. Moreover, even if the state sequence is
+discrete, summing out the state space might be computationally very challenging if the latent state structure is complex. In addition, one may not be able to
+write down the analytical forms of the updating equations for more complex state space models.</p>
+<p>Another popular approach is to use Gibbs sampling, where one uses the previously mentioned filtering techniques to obtain a sample from the
+whole state trajectory $S_{1:T}$, and then sample model parameter conditional on this path.
+This technique suffers from the usually high autocorrelation within the model parameter vector and the state sequence.
+Moreover, ideally one would like to perform estimation jointly for the model parameter $\theta$ and the latent state space $S_{1:T}$, as both have a high interdependence as well. This is not feasible for either method that I mentioned so far.
+For a more in-depth discussion, an excellent comparison of point estimation and Bayesian techniques is given by (Ryden, 2008).</p>
+<h1 id="a-general-framework-to-perform-inference-on-state-space-models">A general framework to perform inference on state space models</h1>
+<p>Given the statements above, I will now focus on a general approach to perform joint estimation on the model parameter and state trajectory of state space models,
+independent of the variate form of the latent space and the distributional assumptions on the observed variables. This is, to the best of my
+knowledge, only possible in a Bayesian setting, where we target the full joint posterior $P( s_{1:T}, \theta \mid e_{1:T})$ by iterating over the following steps:</p>
 <ul>
 <li>
-<p>The function input are the model distributions stated above.</p>
+<ol>
+<li>propose $\theta^{\star} \sim f(\theta^{\star} \mid \theta)$</li>
+</ol>
 </li>
 <li>
-<p>The function output is a single trajectory of the observed and latent variables.</p>
+<ol start="2">
+<li>propose $S^\star_{1:T} \sim P(s^{\star}_{1:T} \mid \theta^{\star}, e_{1:T})$.</li>
+</ol>
 </li>
 <li>
-<p>Before we start the for-loop over time, we need to define the initial state. If the latent states of the data are conceived as a subsequence of a
-long-running process, the probability of the initial state should be set to the stationary state probabilities
-of this unobserved Markov chain. This plays an important part in the estimation paradigm, but for now we simply choose any
-of the available states with equal probability. Don&rsquo;t worry if this sounds difficult - we will come back to it in a later article.</p>
-</li>
-<li>
-<p>The for-loop samples the new state given the old state, and then the observation given the new state, over time. The corresponding distributions
-are stated above.</p>
-</li>
-<li>
-<p>In the HSMM case, we check if the duration in the previous time step reached 0. If true, we sample a new state and duration given this state. If not,
-the current state continues, and we decrease the duration count by 1.</p>
-</li>
-<li>
-<p>That&rsquo;s it! Let us have a look:</p>
+<ol start="3">
+<li>and then accept this pair $(\theta^{\star}, s^{\star}_{1:T})$ with acceptance probability</li>
+</ol>
 </li>
 </ul>
-<pre><code class="language-julia">
-using Distributions
-
-function sampleHSMM(evidence::Vector{&lt;:Distribution}, duration::Vector{&lt;:Distribution}, transition::Matrix{Float64}, T::Int64)
-        #Initialize states and observations
-        state = zeros(Int64, T)
-        state_length = zeros(Int64, T)
-        observation = zeros(Float64, T)
-
-        #Sample initial s from initial distribution
-        state[1] = rand( 1:size(transition, 1) ) #not further discussed here
-        state_length[1] = rand( duration[ state[1] ] ) #not further discussed here
-        observation[1] = rand( evidence[ state[1] ] )
-
-        #Loop over Time Index
-        for time in 2:T
-                if state_length[time-1] &gt; 0
-                        state[time] = state[time-1]
-                        state_length[time] = state_length[time-1] - 1
-                        observation[time] = rand( evidence[ state[time] ] )
-                else
-                        state[time] = rand( Categorical( transition[ state[time-1], :] ) )
-                        state_length[time] = rand( duration[ state[time] ] )
-                        observation[time] = rand( evidence[ state[time] ] )
-                end
-        end
-        #Return output
-        return state, state_length, observation
-end
-</code></pre>
-<pre><code>sampleHSMM (generic function with 1 method)
-</code></pre>
-<p>Let us generate one sample path of said model. I am still using normal observation distributions, but added a third state  so you can have a visual example from the transition matrix adjustment talk above.
-I will use a Negative Binomial distribution to model the state duration, but you are free to choose whatever you like best as long as the support lies on the non-negative Integers.</p>
-<pre><code class="language-julia">
-using Plots
-
-T = 5000
-evidence =  [Normal(0., .5), Normal(0.,1.), Normal(0.,2.)]
-duration =  [NegativeBinomial(100., .2), NegativeBinomial(10., .05), NegativeBinomial(50.,0.5)]
-transition = [0.0 0.5 0.5;
-              0.8 0.0 0.2;
-              0.8 0.2 0.0;]
-state, state_length, observation = sampleHSMM(evidence, duration, transition, T)
-
-plot( layout=(3,1), label=false, margin=-2Plots.px)
-plot!(observation, ylabel=&quot;data&quot;, label=false, subplot=1, color=&quot;gold4&quot;)
-plot!(state, yticks = (1:3), ylabel=&quot;state&quot;, label=false, subplot=2, color=&quot;black&quot;)
-plot!(state_length, ylabel=&quot;duration&quot;, label=false, subplot=3, color=&quot;blue&quot;)
-</code></pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure >
-
-
-  <a data-fancybox="" href="/files/post/2%20HSMM_2_1.png" >
-
-
-  <img src="/files/post/2%20HSMM_2_1.png" alt=""  >
-</a>
-
-
-
-</figure>
-
-<p>To see why the HSMM is a large improvement over the previous model, try to mimic the average state duration with the code that we used for the
-
-<a href="https://paschermayr.github.io/post/statespacemodels-1-a-primer-on-state-space-models/" target="_blank" rel="noopener">basic HMM model</a>. Likewise, you can choose a geometric state duration in the example here to mimic the HMM case. While the latter is done easily,
-the former should almost be unfeasable. As always, you can download the full script from my 
-<a href="https://github.com/paschermayr/Shared-Code" target="_blank" rel="noopener">GitHub account</a>.</p>
-<h1 id="thats-it-for-today">That&rsquo;s it for today!</h1>
-<p>Well done! Initially, I wanted to write an article about several model extensions, but I quickly figured that this would be much
-too long for what I was planning to do, and therefore focused on HSMMs only in this post.
-I am going to gradually write follow-up posts on this one, as there exist many more state space models with an interesting structure, such as autoregressive or factorial HMMs.
-See you soon!</p>
+<!---	$ \frac{P(E \mid \theta^{\star})}{P(E \mid \theta)} \frac{P(\theta^{\star})}{P(\theta)} \frac{q(\theta \mid \theta^{\star})}{q(\theta^{\star} \mid \theta)}$  -->
+<p>$$
+\begin{equation}
+\begin{split}
+A_{PMCMC} &amp;= \frac{ P( s^{\star}_{1:T} \mid \theta^{\star}) }{  P(s_{1:T} \mid \theta ) }
+\frac{ P(e_{1:T} \mid s^{\star}_{1:T}, \theta^{\star}) }{  P(e_{1:T} \mid s_{1:T}, \theta ) }
+\frac{ P(s_{1:T} \mid e_{1:T}, \theta) }{  P(s^{\star}_{1:T} \mid e_{1:T}, \theta^{\star}) }
+\frac{P(\theta^{\star})}{P(\theta)} \frac{q(\theta \mid \theta^{\star})}{q(\theta^{\star} \mid \theta)} \\<br>
+&amp;= \frac{P(e_{1:T} \mid \theta^{\star})}{P(e_{1:T} \mid \theta)} \frac{P(\theta^{\star})}{P(\theta)} \frac{q(\theta \mid \theta^{\star})}{q(\theta^{\star} \mid \theta)}. \<br>
+\end{split}
+\end{equation}
+$$</p>
+<p>Okay, but what does that even mean? In the first step, we propose a new parameter vector $\theta^{\star}$ from a MCMC proposal distribution. I will not go over the basics
+of MCMC, as this has been explained in many other articles, but we will implement an example in part 3 of this tutorial. Given this $\theta^{\star}$, we sample a new trajectory
+$s^\star_{1:T}$ and jointly accept this pair with the acceptance ratio from point 3. This framework allows to jointly sample $\theta$ and $S_{1:T}$, which was our goal in the first place.
+However, the in general intractable likelihood term is still contained in the acceptance probability in step 3,
+which is simplified by using the basic marginal likelihood identity (BMI) from (Chib, 1995).
+Consequently, the difficulty to obtain a sample from the posterior remains the same: we need to evaluate the (marginal) likelihood of the model.</p>
+<h1 id="the-particle-mcmc-idea">The Particle MCMC idea</h1>
+<p>An alternative is to replace this (marginal) likelihood with an unbiased estimate $\hat{ \mathcal{L} }$$_\theta(e_{1:T})$. In this setting, (Andrieu and Roberts, 2010) have shown the puzzling result that one
+can do so and still target the exact posterior distribution of interest, thereby opening a completely new research area now called &lsquo;exact approximate MCMC&rsquo;.
+The algorithm that is used in this setting targets the full posterior and is known as Particle MCMC (PMCMC).
+Here, a particle filter (PF) is used to obtain a sample for $S_{1:T}$. A by-product of this procedure is that we also obtain an unbiased estimate for the likelihood.
+If you are more interested in PFs, have a look at the paper from (Doucet, A. and Johansen, 2011).
+For anyone wondering: as $p(s_{1:T} \mid e_{1:T}, \theta )$ is replaced with an approximation $\hat{p}(s_{1:T} \mid e_{1:T}, \theta )$,
+the approximation does not admit $p(s_{1:T}, \theta \mid e_{1:T})$ as invariant density, but
+this is corrected in the PMCMC algorithm via step 3.</p>
+<h1 id="going-forward">Going forward</h1>
+<p>The PMCMC machinery provides a very powerful framework and cures many of the difficulties in the estimation paradigms mentioned at the
+beginning of this series. In reality, however, much of the performance depends on whether you find a good proposal
+distribution $ f( . \mid \theta)$ and $P(s^\star_{1:T} \mid \theta^{\star}, e_{1:T})$.
+Moreover, we have yet not mentioned how this machinery scales in the dimension of $\theta$ and $S_{1:T}$.
+These are all questions that I pursue in my own PhD studies, and we may venture through them once we know the very basics.</p>
+<p>In the next blog post, we will implement a particle filter to do inference on the latent state trajectory. Going forward, we then talk about doing MCMC in this case,
+and implement a basic framework to sample from an unconstrained parameter space. Last but not least, we will combine all of this and apply a PMCMC
+algorithm on a standard HMM to obtain parameter estimates.</p>
+<h2 id="references">References</h2>
+<p>Andrieu, C. and Roberts, G. O. (2010). The pseudo-marginal approach for efficient monte carlo computations.
+Ann. Statist., 37(2):697-725.</p>
+<p>Chib, S. (1995). Marginal likelihood from the gibbs output. Journal of the American Statistical Association,
+90(432):1313-1321.</p>
+<p>Doucet, A. and Johansen, A. (2011). A tutorial on particle filtering and smoothing: Fifteen years later.</p>
+<p>Rabiner, L. R. (1989). A tutorial on hidden markov models and selected applications in speech recognition.
+Proceedings of the IEEE, 77(2):257-286.</p>
+<p>Ryden, T. (2008). Em versus markov chain monte carlo for estimation of hidden markov models: A computational
+perspective. Bayesian Analysis, 3(4):659-688.</p>
 
     </div>
 
@@ -852,9 +761,7 @@ See you soon!</p>
   
   <a class="badge badge-light" href="/tag/state-space-models/">State Space Models</a>
   
-  <a class="badge badge-light" href="/tag/hidden-semi-markov-model/">Hidden semi-Markov Model</a>
-  
-  <a class="badge badge-light" href="/tag/julia/">Julia</a>
+  <a class="badge badge-light" href="/tag/particle-mcmc/">Particle MCMC</a>
   
 </div>
 
@@ -871,7 +778,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https://paschermayr.github.io/post/statespacemodels-2-hsmm/&amp;text=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/&amp;text=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%201" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -884,7 +791,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https://paschermayr.github.io/post/statespacemodels-2-hsmm/&amp;t=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/&amp;t=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%201" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -897,7 +804,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="mailto:?subject=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM&amp;body=https://paschermayr.github.io/post/statespacemodels-2-hsmm/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%201&amp;body=https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -910,7 +817,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://paschermayr.github.io/post/statespacemodels-2-hsmm/&amp;title=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/&amp;title=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%201" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -923,7 +830,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="whatsapp://send?text=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM%20https://paschermayr.github.io/post/statespacemodels-2-hsmm/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%201%20https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -936,7 +843,7 @@ See you soon!</p>
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://paschermayr.github.io/post/statespacemodels-2-hsmm/&amp;title=State%20Space%20Models%20Everywhere!%20Round%201:%20HSMM" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/&amp;title=Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%201" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1124,9 +1031,9 @@ See you soon!</p>
       
       <li><a href="/post/statespacemodels-3-inference-on-state-space-models-part-2/">Bayesian Inference on State Space Models - Part 2</a></li>
       
-      <li><a href="/post/statespacemodels-1-a-primer-on-state-space-models/">A Primer on State Space Models</a></li>
+      <li><a href="/post/statespacemodels-2-hsmm/">State Space Models Everywhere! Round 1: HSMM</a></li>
       
-      <li><a href="/post/statespacemodels-3-inference-on-state-space-models-part-1/">Bayesian Inference on State Space Models - Part 1</a></li>
+      <li><a href="/post/statespacemodels-1-a-primer-on-state-space-models/">A Primer on State Space Models</a></li>
       
     </ul>
   </div>

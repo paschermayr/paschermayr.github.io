@@ -13,17 +13,17 @@
     </image>
     
     <item>
-      <title>Bayesian Inference in State Space Models - Part 3</title>
-      <link>https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-3/</link>
+      <title>Bayesian Inference on State Space Models - Part 3</title>
+      <link>https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/</link>
       <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-3/</guid>
+      <guid>https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-3/</guid>
       <description>&lt;p&gt;The MCMC in PMCMC - Making a Proposal Distribution for State Space Model Parameter&lt;/p&gt;
 &lt;h1 id=&#34;almost-done&#34;&gt;Almost done!&lt;/h1&gt;
 &lt;p&gt;In my previous blog posts
 
-&lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;
+&lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;
 and 
-&lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;,
+&lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;,
 we explored a general framework on how to conduct parameter estimation
 for state space models (SSM), and took a first step in implementing this machinery. In order to
 apply Particle MCMC (PMCMC), we have to&lt;/p&gt;
@@ -80,7 +80,7 @@ prior: boundaries, length and dimension of each parameter can be inferred from h
 in other languages as well.&lt;/p&gt;
 &lt;h1 id=&#34;coding-it-all-up&#34;&gt;Coding it all up&lt;/h1&gt;
 &lt;p&gt;In my 
-&lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;last post&lt;/a&gt;, we implemented a particle
+&lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;last post&lt;/a&gt;, we implemented a particle
 filter for basic hidden Markov models, so let us continue to use this example.
 Hence, we are interested in the mean and variance parameter for each state, and the corresponding transition matrix of the
 latent Markov chain. For now, let us assume the transition matrix is known, so we can implement

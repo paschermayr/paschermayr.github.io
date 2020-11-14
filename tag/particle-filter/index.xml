@@ -13,14 +13,14 @@
     </image>
     
     <item>
-      <title>Inference in State Space Models - Part 2</title>
-      <link>https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-2/</link>
+      <title>Bayesian Inference on State Space Models - Part 2</title>
+      <link>https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-2/</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-2/</guid>
+      <guid>https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-2/</guid>
       <description>&lt;p&gt;Particle Filtering in State Space Models&lt;/p&gt;
 &lt;h1 id=&#34;welcome-back&#34;&gt;Welcome back!&lt;/h1&gt;
 &lt;p&gt;In my 
-&lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-3-inference-in-state-space-models-part-1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;previous blog post&lt;/a&gt;, we explored a
+&lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-3-inference-on-state-space-models-part-1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;previous blog post&lt;/a&gt;, we explored a
 general framework to conduct parameter estimation
 on state space models (SSM). We call this framework Particle MCMC (PMCMC), and the three major
 steps to successfully apply this algorithm are as follows:&lt;/p&gt;
@@ -231,10 +231,10 @@ plot!(state, yticks = (1:2), ylabel=&amp;quot;state&amp;quot;, label=false, subp
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://paschermayr.github.io/files/post/3%20Inference%20in%20State%20Space%20Models%20-%20Part%202_6_1.png&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://paschermayr.github.io/files/post/3%20Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%202_6_1.png&#34; &gt;
 
 
-  &lt;img src=&#34;https://paschermayr.github.io/files/post/3%20Inference%20in%20State%20Space%20Models%20-%20Part%202_6_1.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://paschermayr.github.io/files/post/3%20Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%202_6_1.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -274,10 +274,10 @@ Plots.plot!( mean(particles; dims=2) , label=&amp;quot;Particle Filter state tra
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://paschermayr.github.io/files/post/3%20Inference%20in%20State%20Space%20Models%20-%20Part%202_8_1.png&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://paschermayr.github.io/files/post/3%20Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%202_8_1.png&#34; &gt;
 
 
-  &lt;img src=&#34;https://paschermayr.github.io/files/post/3%20Inference%20in%20State%20Space%20Models%20-%20Part%202_8_1.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://paschermayr.github.io/files/post/3%20Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%202_8_1.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -337,10 +337,10 @@ plot(grid, ll_estimate&#39;, seriestype = :scatter, ms=3.0, label=&amp;quot;&amp
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://paschermayr.github.io/files/post/3%20Inference%20in%20State%20Space%20Models%20-%20Part%202_9_1.png&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://paschermayr.github.io/files/post/3%20Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%202_9_1.png&#34; &gt;
 
 
-  &lt;img src=&#34;https://paschermayr.github.io/files/post/3%20Inference%20in%20State%20Space%20Models%20-%20Part%202_9_1.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://paschermayr.github.io/files/post/3%20Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%202_9_1.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -369,10 +369,10 @@ plot(grid, ll_estimate&#39;, seriestype = :scatter, ms=3.0, label=&amp;quot;&amp
 &lt;figure &gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://paschermayr.github.io/files/post/3%20Inference%20in%20State%20Space%20Models%20-%20Part%202_10_1.png&#34; &gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://paschermayr.github.io/files/post/3%20Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%202_10_1.png&#34; &gt;
 
 
-  &lt;img src=&#34;https://paschermayr.github.io/files/post/3%20Inference%20in%20State%20Space%20Models%20-%20Part%202_10_1.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://paschermayr.github.io/files/post/3%20Bayesian%20Inference%20on%20State%20Space%20Models%20-%20Part%202_10_1.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
