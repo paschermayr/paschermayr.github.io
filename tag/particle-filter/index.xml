@@ -47,7 +47,7 @@ current parameter vector $\theta$. In order to use all the code we use here, ple
 from my 
 &lt;a href=&#34;https://paschermayr.github.io/post/statespacemodels-1-a-primer-on-state-space-models/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;introductory HMM&lt;/a&gt; article,
 or just include the corresponding HMM Julia file from my 
-&lt;a href=&#34;https://github.com/paschermayr/Shared-Code/blob/master/sampleHMM.jl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub account&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/paschermayr/Shared-Code/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub account&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;filtering-the-latent-state-trajectory&#34;&gt;Filtering the latent state trajectory&lt;/h1&gt;
 &lt;p&gt;In PMCMC, a particle filter (PF) is used to first sample a trajectory $s^{\star}_{1:T}$ and then calculate an
 unbiased estimate of the corresponding likelihood. Note that unbiased does not mean our estimate is automatically
