@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Opensources | Welcome!</title>
+    <link>https://paschermayr.github.io/opensource/</link>
+      <atom:link href="https://paschermayr.github.io/opensource/index.xml" rel="self" type="application/rss+xml" />
+    <description>Opensources</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 01 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://paschermayr.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Opensources</title>
+      <link>https://paschermayr.github.io/opensource/</link>
+    </image>
+    
+    <item>
+      <title>Baytes.jl</title>
+      <link>https://paschermayr.github.io/opensource/baytes/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://paschermayr.github.io/opensource/baytes/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/paschermayr/Baytes.jl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Baytes.jl&lt;/a&gt; is a package to perform Bayesian inference. It consists of several sub-libraries, such as &lt;a href=&#34;https://github.com/paschermayr/BaytesMCMC.jl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BaytesMCMC.jl&lt;/a&gt;, &lt;a href=&#34;https://github.com/paschermayr/BaytesFilters.jl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BaytesFilters.jl&lt;/a&gt;, &lt;a href=&#34;https://github.com/paschermayr/BaytesPMCMC.jl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BaytesPMCMC.jl&lt;/a&gt; and &lt;a href=&#34;https://github.com/paschermayr/BaytesSMC.jl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BaytesSMC.jl&lt;/a&gt;, and provides an interface to combine kernels from these packages. Check it out &lt;a href=&#34;https://github.com/paschermayr/Baytes.jl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ModelWrappers.jl</title>
+      <link>https://paschermayr.github.io/opensource/modelwrapppers/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://paschermayr.github.io/opensource/modelwrapppers/</guid>
+      <description>&lt;p&gt;ModelWrappers.jl is a utility package that makes it easier to work with Model parameters stated as (nested) NamedTuples. It provides a framework to represent parameters as (nested) tuples or vectors. Parameters can be shown in constrained or unconstrained domain, and representations are fully compatible with multiple Automatic Differentiation frameworks. Check it out &lt;a href=&#34;https://github.com/paschermayr/ModelWrappers.jl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

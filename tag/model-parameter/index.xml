@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Model Parameter | Welcome!</title>
+    <link>https://paschermayr.github.io/tag/model-parameter/</link>
+      <atom:link href="https://paschermayr.github.io/tag/model-parameter/index.xml" rel="self" type="application/rss+xml" />
+    <description>Model Parameter</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://paschermayr.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Model Parameter</title>
+      <link>https://paschermayr.github.io/tag/model-parameter/</link>
+    </image>
+    
+    <item>
+      <title>ModelWrappers.jl</title>
+      <link>https://paschermayr.github.io/opensource/modelwrapppers/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://paschermayr.github.io/opensource/modelwrapppers/</guid>
+      <description>&lt;p&gt;ModelWrappers.jl is a utility package that makes it easier to work with Model parameters stated as (nested) NamedTuples. It provides a framework to represent parameters as (nested) tuples or vectors. Parameters can be shown in constrained or unconstrained domain, and representations are fully compatible with multiple Automatic Differentiation frameworks. Check it out &lt;a href=&#34;https://github.com/paschermayr/ModelWrappers.jl&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

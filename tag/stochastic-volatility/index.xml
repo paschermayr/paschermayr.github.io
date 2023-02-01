@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stochastic Volatility | Welcome!</title>
+    <link>https://paschermayr.github.io/tag/stochastic-volatility/</link>
+      <atom:link href="https://paschermayr.github.io/tag/stochastic-volatility/index.xml" rel="self" type="application/rss+xml" />
+    <description>Stochastic Volatility</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 31 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://paschermayr.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Stochastic Volatility</title>
+      <link>https://paschermayr.github.io/tag/stochastic-volatility/</link>
+    </image>
+    
+    <item>
+      <title>A Class of Stochastic Volatility Models with Copula Dependencies</title>
+      <link>https://paschermayr.github.io/publication/20230131_copulasv/</link>
+      <pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://paschermayr.github.io/publication/20230131_copulasv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sequential Bayesian Learning for State Space Models</title>
+      <link>https://paschermayr.github.io/publication/20221220_phdthesis/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://paschermayr.github.io/publication/20221220_phdthesis/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

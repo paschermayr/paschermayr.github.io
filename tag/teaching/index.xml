@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Teaching | Welcome!</title>
+    <link>https://paschermayr.github.io/tag/teaching/</link>
+      <atom:link href="https://paschermayr.github.io/tag/teaching/index.xml" rel="self" type="application/rss+xml" />
+    <description>Teaching</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://paschermayr.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Teaching</title>
+      <link>https://paschermayr.github.io/tag/teaching/</link>
+    </image>
+    
+    <item>
+      <title>LSE - ST308 - Bayesian Inference (2022)</title>
+      <link>https://paschermayr.github.io/teaching/lse-2022-st308-bayesian-inference/</link>
+      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://paschermayr.github.io/teaching/lse-2022-st308-bayesian-inference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LSE - ST308 - Bayesian Inference (2021)</title>
+      <link>https://paschermayr.github.io/teaching/lse-2021-st308-bayesian-inference/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://paschermayr.github.io/teaching/lse-2021-st308-bayesian-inference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LSE - ST308 - Bayesian Inference (2020)</title>
+      <link>https://paschermayr.github.io/teaching/lse-2020-st308-bayesian-inference/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://paschermayr.github.io/teaching/lse-2020-st308-bayesian-inference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LSE - ST107 - Quantitative Methods (2019)</title>
+      <link>https://paschermayr.github.io/teaching/lse-2019-st107-quantitative-methods/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://paschermayr.github.io/teaching/lse-2019-st107-quantitative-methods/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
